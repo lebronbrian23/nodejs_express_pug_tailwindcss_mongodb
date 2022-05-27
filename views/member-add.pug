@@ -1,0 +1,21 @@
+extends layout
+
+block layout-content
+    div.mt-32.p-4.justify-center.grid
+        h2.uppercase.text-3xl Add team member
+        form(action="/team-member/add" method="post" name="new-team-member")
+            div
+                label(for="name") Name:
+                input#name.px-2.py-1.rounded-md.m-2.border-solid.border-2.w-full(name="name" type="text" )
+            div
+                label(for="role") Role:
+                input#role.px-2.py-1.rounded-md.m-2.border-solid.border-2.w-full(name="role" type="text" placeholder="eg Accountant")
+            div
+                label(for="joined") Joined:
+                input#joined.px-2.py-1.rounded-md.m-2.border-solid.border-2.w-full(name="joined" type="date")
+            div
+                input#btn.px-3.py-2.rounded-md.m-2.bg-orange-600.text-white.w-full(type="submit" value="Add ")
+
+
+
+

@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+        title #{title} - LB23 Store
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css")
+        link(href="./styles/style.css", rel="stylesheet")
+        script(async defer src="js/script.js")
+        body
+        header.fixed.w-full.px-9.py-8.filter-drop-shadow.z-10.top-0.text-20
+            div.grid.header-content
+                h2#logo.m-o
+                    a(href="/") LB23 Store Admin
+                nav#header-nav(aria-label="Main navigation")
+                    button.menu-toggle.border-none.mr-1.hidden.text-black(aria-label="Toggle menu" onclick="toggleMenu()")
+                        i.fa-solid.fa-bars
+                    ul.nav-links.text-right.pr-6
+                        each link in links
+                            li
+                                a(href=link.href) #{link.name}
+
+        main.mx-16.my-16
+            block layout-content
+        footer.border-t-2.border-solid.border-zinc-200.bg-slate-50
+            p.p-4.my-1.mx-8.text-black &copy; 2022 All rights reserved

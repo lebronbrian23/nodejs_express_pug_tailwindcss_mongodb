@@ -1,0 +1,22 @@
+extends layout
+
+block layout-content
+    div.mt-32.p-4.justify-center.grid
+        h2.uppercase.text-3xl Edit team member
+        form(action="/team-member/update" method="POST" name="update_member")
+            input(type="hidden" name="id" value=editMember._id)
+            div
+                label(for="name") Name:
+                input#name.px-2.py-1.rounded-md.m-2.border-solid.border-2.w-full(name="name" type="text" value=editMember.name )
+            div
+                label(for="role") Role:
+                input#role.px-2.py-1.rounded-md.m-2.border-solid.border-2.w-full(name="role" type="text" value=editMember.role)
+            div
+                label(for="joined") Joined:
+                input#joined.px-2.py-1.rounded-md.m-2.border-solid.border-2.w-full(name="joined" type="date" value=editMember.joined)
+            div
+                input#btn.px-3.py-2.rounded-md.m-2.bg-orange-600.text-white.w-full(type="submit" value="Update")
+
+
+
+

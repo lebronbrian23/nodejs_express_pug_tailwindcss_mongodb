@@ -1,0 +1,232 @@
+/* importing fonts */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0;
+}
+body{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+}
+
+a{
+    text-decoration: none;
+    color: #1101ed;
+}
+li{
+    list-style: none;
+}
+.header-content{
+    grid-template-areas: 'logo nav-links';
+}
+#logo{
+    grid-area: logo;
+}
+.nav-links{
+    grid-area: nav-links;
+}
+.text-20{
+    font-size: 20px;
+}
+.pr-px-30{
+    padding-right: 30px;
+}
+
+.filter-drop-shadow{
+    background-color: #f8f8f8;
+    border-bottom: 2px solid #e4efe4;
+    filter: drop-shadow(0.15rem 0.15rem 0.4rem rgba(0, 0, 0, 0.1));
+}
+/**
+main content
+ */
+
+.h-120{
+    height: 38rem;
+}
+
+/**Featured items*/
+#item-list ,#item-list-1 ,#item-list-2{
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+}
+#item-list {
+    grid-template-areas: 'item-1 item-2 item-3 item-4';
+}
+#item-list-1 {
+    grid-template-areas: 'item-1 item-2 item-3 item-4';
+}
+#item-list-2 {
+    grid-template-areas: 'item-5 item-6 item-7 item-8';
+}
+.item-1{
+    grid-area: item-1;
+}
+.item-2{
+    grid-area: item-2;
+}
+.item-3{
+    grid-area: item-3;
+}
+.item-4{
+    grid-area: item-4;
+}
+.item-5{
+    grid-area: item-5;
+}
+.item-6{
+    grid-area: item-6;
+}
+.item-7{
+    grid-area: item-7;
+}
+.item-8{
+    grid-area: item-8;
+}
+
+/* featured items*/
+
+/** setting custom styles belong for base */
+@layer base {
+    h3{
+        @apply font-bold;
+        @apply uppercase;
+    }
+    .nav-links > li {
+        @apply inline-block;
+        @apply pr-px-30;
+        @apply pb-0;
+        @apply mb-0;
+        @apply text-20;
+    }
+    #featured-items > h2{
+        @apply p-6;
+    }
+    .item-1, .item-2, .item-3, .item-4,
+    .item-5, .item-6, .item-7, .item-8 {
+        @apply border-2;
+        @apply border-solid;
+        @apply border-[#dddada];
+        @apply rounded-sm;
+        @apply my-auto;
+        @apply mx-0;
+        @apply text-center;
+        @apply justify-center;
+        @apply px-10;
+        @apply relative;
+
+    }
+    .item-1 >figure > img , .item-2 >figure > img,
+    .item-3 >figure > img , .item-4 >figure > img,
+    .item-5 >figure > img , .item-6 >figure > img,
+    .item-7 >figure > img , .item-8 >figure > img {
+        @apply h-56;
+    }
+    .call-to-action{
+        @apply py-2;
+        @apply px-6;
+        @apply inline-block;
+        @apply mb-4;
+        @apply mt-1;
+        @apply rounded-md;
+        @apply tracking-tighter;
+        @apply border-2;
+        @apply border-solid;
+        @apply relative;
+        @apply text-black;
+        @apply uppercase;
+    }
+
+}
+/** setting custom styles belong for utilities */
+@layer utilities {
+    #logo > a:hover , .nav-links > li > a:hover {
+        @apply text-[#ff4c3b];
+    }
+    .item-1:hover ,.item-2:hover , .item-3:hover ,.item-4:hover,
+    .item-5:hover ,.item-6:hover , .item-7:hover ,.item-8:hover{
+        @apply border-2;
+        @apply border-solid;
+        @apply border-[#ff4c3b];
+    }
+    .call-to-action:hover{
+        @apply bg-orange-600;
+        @apply transition;
+        @apply duration-700;
+        @apply ease-out;
+        @apply border-[#ff4c3b];
+    }
+    .call-to-action > a:hover{
+        @apply text-white;
+    }
+
+}
+
+
+@media screen and (max-width: 800px) {
+    .menu-toggle{
+        display: block;
+        float: right;
+    }
+    #header-nav{
+        padding-right: 2em;
+    }
+    #header-nav .nav-links{
+        display: none;
+        position: absolute;
+        background-color: white;
+        width: 100%;
+        left: 0;
+        top: calc(100% - 1em);
+    }
+
+    .nav-links li{
+        display: block;
+    }
+    #header-nav .nav-links.show-mobile-menu{
+        display: block;
+    }
+    #slogan{
+        @apply top-24;
+        @apply text-2xl;
+        @apply left-14;
+    }
+    #item-list , #item-list-1, #item-list-2{
+        grid-template-areas: 'item-1 item-2'
+                            'item-3 item-4'
+                            'item-5 item-6'
+                            'item-7 item-8';
+    }
+
+}
+@media screen and (max-width: 630px) {
+    #slogan{
+        @apply text-sm;
+    }
+    #hero-image-content{
+        @apply h-48;
+    }
+    #featured-items{
+        margin: 0;
+        justify-content: center;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 488px) {
+    #slogan{
+        @apply top-44;
+    }
+    #item-list ,#item-list-1 ,#item-list-2{
+        grid-template-columns: 4fr ;
+    }
+    #item-list , #item-list-1 , #item-list-2 {
+        grid-template-areas: 'item-1' 'item-2'
+                            'item-3' 'item-4'
+                            'item-5' 'item-6'
+                            'item-7' 'item-8';
+    }
+
+}

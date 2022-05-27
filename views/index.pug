@@ -1,0 +1,34 @@
+extends layout
+
+block layout-content
+
+    div.mt-32
+        div.grid
+            h2.uppercase.float-left Team Members
+            a.float-right(href="/add-team-member") Add team member
+
+        div(id="item-team-members")
+            table.table-auto.w-full
+                thead
+                    tr
+                        th Name
+                        th Role
+                        th Joined
+                        th Action
+                tbody
+                    each member in team_members
+                        tr
+                            td #{member.name}
+                            td #{member.role}
+                            td #{member.joined}
+                            td
+                                form(action="member/edit")
+                                    input(type="hidden" , name="memberId" ,value=member._id)
+                                    button(type="submit") Edit
+                            td
+                                form(action="member/delete")
+                                    input(type="hidden" , name="memberId" , value=member._id)
+                                    button(type="submit") Delete
+
+
+
